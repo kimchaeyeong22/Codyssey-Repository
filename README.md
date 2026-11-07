@@ -19,6 +19,36 @@ Docker를 이용하여 Nginx 웹 서버를 실행하고, 포트 매핑, Bind Mou
 | Git 버전 | 2.56.0.windows.4 |
 | Git 브랜치 | main |
 
+##Docker 버전 및 데몬 상태 증빙
+
+VERSION
+
+docker --version
+
+Docker version 29.9.2, build a82e528
+
+SERVER STATUS
+
+docker info
+
+Server Version: 29.9.2
+
+Containers: 2
+
+Running: 1
+
+Stopped: 1
+
+Images: 3
+
+SYSTEM INFORMATION
+
+Operating System: Docker Desktop
+
+OSType: linux
+
+Architecture: x86_64
+
 ## 3. 프로젝트 구조
 
 ```text
