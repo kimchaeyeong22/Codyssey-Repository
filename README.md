@@ -300,3 +300,26 @@ Windows PowerShell에서 `icacls`, `Get-Acl`, `Set-Acl` 명령어를 사용하�
 ### 작업 로그
 [파일 권한 작업 전체 로그](logs/permission-operations.txt)
 '@
+
+
+
+
+
+
+
+Add-Content -Path .\README.md -Value @'
+
+## Docker Hello-world 실행 실습
+
+Docker의 기본 실행 테스트를 위해 `docker run hello-world` 명령어를 실행하였다.
+
+### 수행 결과
+- 로컬에 이미지가 없어 Docker Hub에서 `hello-world` 이미지 다운로드
+- 컨테이너 생성 및 실행 성공
+- `Hello from Docker!` 출력 확인
+- `docker ps -a` 명령어로 컨테이너 상태 확인
+- 컨테이너 상태: `Exited (0)` (정상 종료)
+
+### 작업 로그
+[Docker Hello-world 실행 전체 로그](logs/docker-hello-world.txt)
+'@
