@@ -244,3 +244,29 @@ PowerShell의 `Start-Transcript` 기능을 사용하여 실제 명령어와 실�
 - [파일 시스템 작업 전체 로그](logs/filesystem-operations.txt)
 
 로그에는 파일과 폴더의 생성, 파일 이동 및 삭제, 삭제 여부 검증 결과가 포함되어 있다.
+
+
+
+
+Add-Content -Path .\README.md -Value @'
+
+## 파일 권한 관리 실습
+
+Windows PowerShell에서 `icacls`, `Get-Acl`, `Set-Acl` 명령어를 사용하여 파일 접근 권한을 확인하고 변경하였다.
+
+### 주요 작업
+- `Get-Acl`: 파일의 기존 접근 권한 확인
+- `icacls`: 현재 파일 권한 확인 및 읽기 권한 부여
+- `Set-Acl`: 변경 전 백업한 ACL을 이용하여 원래 권한 복구
+- `Get-Acl`: 권한 복구 결과 확인
+
+### 실습 결과
+- 테스트 파일: `permission-test/sample.txt`
+- 읽기 권한 `(R)` 부여 성공
+- 변경된 ACL 확인 성공
+- 원래 권한 복구 성공
+- 최종 권한 확인 성공
+
+### 작업 로그
+[파일 권한 작업 전체 로그](logs/permission-operations.txt)
+'@
