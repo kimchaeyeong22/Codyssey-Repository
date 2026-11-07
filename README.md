@@ -187,3 +187,60 @@ Docker 이미지 빌드 및 웹 서버 실행, 포트 매핑, Bind Mount를 통�
 또한 Git을 이용하여 프로젝트 파일과 실습 증거 자료를 버전 관리하고 GitHub 원격 저장소에 업로드하였다.
 
 이를 통해 개발 환경 구축부터 컨테이너 운영 및 프로젝트 버전 관리까지의 기본 과정을 경험하였다.
+
+
+
+
+### 파일 시스템 관리 실습
+
+PowerShell을 사용하여 기본적인 파일 및 폴더 관리 작업을 수행하였다.
+
+
+
+**수행 내용**
+- `New-Item`: 폴더 및 파일 생성
+- `Set-Content`: 파일에 텍스트 작성
+- `Get-Content`: 파일 내용 확인
+- `Get-ChildItem`: 폴더 내부 파일 및 하위 폴더 확인
+- `Move-Item`: 파일을 다른 폴더로 이동
+- `Remove-Item`: 파일 및 폴더 삭제
+- `Test-Path`: 파일 및 폴더의 존재 여부 확인
+
+**검증 결과**
+- 파일 및 폴더 생성 완료
+- 파일 내용 작성 및 읽기 확인
+- 파일 이동 후 대상 폴더에서 파일 확인
+- 파일 삭제 후 `Test-Path` 결과 `False` 확인
+- 폴더 삭제 후 `Test-Path` 결과 `False` 확인
+
+**실행 기록**
+
+실제 PowerShell 명령어와 실행 결과는 다음 로그 파일에 기록하였다.
+
+- [파일 시스템 작업 로그](logs/filesystem-operations.txt)
+
+`Start-Transcript`와 `Stop-Transcript`를 사용하여 명령어 및 실행 결과를 기록하였다.
+## 파일 시스템 관리 실습
+
+PowerShell을 활용하여 파일 및 폴더의 생성, 조회, 이동, 삭제 작업을 수행하였다.
+
+### 수행한 작업
+
+| 작업 | 명령어 | 검증 결과 |
+|---|---|---|
+| 폴더 생성 | `New-Item -ItemType Directory` | 생성 결과 확인 |
+| 파일 생성 | `New-Item -ItemType File` | 생성 결과 확인 |
+| 파일 내용 작성 | `Set-Content` | 텍스트 작성 완료 |
+| 파일 내용 조회 | `Get-Content` | 작성한 텍스트 출력 확인 |
+| 폴더 내부 조회 | `Get-ChildItem` | 파일 및 폴더 목록 확인 |
+| 파일 이동 | `Move-Item` | 이동한 파일 확인 |
+| 파일 삭제 | `Remove-Item` | `Test-Path` 결과 `False` |
+| 폴더 삭제 | `Remove-Item -Recurse -Force` | `Test-Path` 결과 `False` |
+
+### 실행 결과 및 증빙
+
+PowerShell의 `Start-Transcript` 기능을 사용하여 실제 명령어와 실행 결과를 로그 파일에 기록하였다.
+
+- [파일 시스템 작업 전체 로그](logs/filesystem-operations.txt)
+
+로그에는 파일과 폴더의 생성, 파일 이동 및 삭제, 삭제 여부 검증 결과가 포함되어 있다.
