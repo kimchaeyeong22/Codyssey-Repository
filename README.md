@@ -333,3 +333,13 @@ Docker의 기본 실행 테스트를 위해 `docker run hello-world` 명령어�
 - 빌드 결과: 성공
 - PowerShell 작업 기록: [docker-build-operations.txt](./logs/docker-build-operations.txt)
 - 실제 Docker 빌드 출력: [docker-build-output.txt](./logs/docker-build-output.txt)
+
+
+
+## Git 사용자 정보 설정
+
+- 사용자 이름 설정: `git config --local user.name`
+- 이메일 설정: `git config --local user.email`
+- 설정 확인: `git config --local --list`
+- 설정 범위: 현재 저장소(Local)
+- 실행 기록: [git-config-operations.txt](./logs/git-config-operations.txt)
