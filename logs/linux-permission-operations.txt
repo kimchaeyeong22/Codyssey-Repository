@@ -1,0 +1,34 @@
+﻿**********************
+Windows PowerShell 기록 시작
+시작 시간: 20261109151735
+사용자 이름: GNIA\florina162944
+RunAs 사용자: GNIA\florina162944
+구성 이름: 
+Machine: GNIA-C202-F02 (Microsoft Windows NT 10.0.26300.0)
+호스트 응용 프로그램: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -command try { . "c:\Program Files\Microsoft VS Code\2c33b50b16\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+프로세스 ID: 2456
+PSVersion: 5.1.26100.9711
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9711
+BuildVersion: 10.0.26100.9711
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+기록이 시작되었습니다. 출력 파일은 .\logs\linux-permission-operations.txt입니다.
+PS C:\Users\florina162944\dev-workstation-new> docker run --rm -it --name linux-permission-test nginx:alpine sh
+Status: Downloaded newer image for nginx:alpine
+/ #
+/ # touch sample.txt
+/ # ls -l sample.txt
+-rw-r--r--    1 root     root             0 Nov  9 06:18 sample.txt
+/ # chmod 755 sample.txt
+/ # ls -l sample.txt
+-rwxr-xr-x    1 root     root             0 Nov  9 06:18 sample.txt
+/ # exit
+PS C:\Users\florina162944\dev-workstation-new> Stop-Transcript
+**********************
+Windows PowerShell 기록 끝
+종료 시간: 20261109152151
+**********************

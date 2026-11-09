@@ -601,3 +601,28 @@ docker ps -a
 - 일반 프로세스: PID와 프로세스 이름을 확인한 후 안전한 경우 `Stop-Process -Id PID`로 종료한다.
 - Docker 컨테이너: `docker ps`로 실행 중인 컨테이너를 확인한 후 `docker stop 컨테이너명`으로 중지한다.
 - 해제 확인: `netstat -ano` 또는 `Get-NetTCPConnection`으로 해당 포트의 수신 대기 상태를 재확인한다.
+
+
+### Linux 파일 권한 관리 실습
+
+Windows 환경의 권한 관리와 별도로 Docker 기반 Linux 컨테이너에서 파일 권한 변경을 실습했다.
+
+- 실행 환경: Docker `nginx:alpine` Linux 컨테이너
+- 테스트 파일: `sample.txt`
+- 파일 생성: `touch sample.txt`
+- 권한 확인: `ls -l sample.txt`
+- 권한 변경: `chmod 755 sample.txt`
+
+**권한 변경 결과**
+
+| 구분 | 권한 문자열 | 숫자 권한 |
+|---|---|---|
+| 변경 전 | `-rw-r--r--` | 644 |
+| 변경 후 | `-rwxr-xr-x` | 755 |
+
+**755 권한의 의미**
+- 소유자: 읽기, 쓰기, 실행 (7)
+- 그룹: 읽기, 실행 (5)
+- 기타 사용자: 읽기, 실행 (5)
+
+**실습 로그:** [linux-permission-operations.txt](./logs/linux-permission-operations.txt)
