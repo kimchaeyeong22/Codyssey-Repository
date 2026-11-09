@@ -488,3 +488,116 @@ Linux 및 Unix 계열 운영체제에서는 파일과 디렉터리의 접근 권
 따라서 `755`는 `rwxr-xr-x`와 동일한 권한을 의미한다.
 
 이러한 숫자 표기법은 Linux 환경에서 `chmod 755 filename`과 같이 파일 및 디렉터리 권한을 설정할 때 사용한다.
+
+
+
+
+### 포트 충돌 진단 및 해제 방법
+
+Docker 컨테이너 실행 시 호스트 포트가 다른 프로세스에 의해 사용 중이면 포트 바인딩 오류가 발생할 수 있다. 이 경우 Docker 컨테이너와 호스트 PC의 포트 사용 상태를 각각 확인해야 한다.
+
+**1. Docker 컨테이너의 포트 사용 상태 확인**
+
+```powershell
+docker ps -a
+docker ps
+```
+
+- `docker ps -a`: 생성된 모든 컨테이너 확인
+- `docker ps`: 현재 실행 중인 컨테이너와 포트 매핑 확인
+
+**2. Windows 호스트의 포트 사용 프로세스 확인**
+
+```powershell
+netstat -ano | findstr :8080
+```
+
+출력 결과에서 다음 항목을 확인한다.
+
+- `LISTENING`: 해당 포트에서 연결을 기다리는 상태
+- `PID`: 포트를 사용 중인 프로세스의 프로세스 ID
+
+PID를 확인한 후 프로세스 정보를 조회한다.
+
+```powershell
+Get-Process -Id 12345
+```
+
+또는 PowerShell의 다음 명령으로 포트 사용 정보를 확인할 수 있다.
+
+```powershell
+Get-NetTCPConnection -LocalPort 8080 -State Listen
+```
+
+**3. 포트 해제 방법**
+
+- 일반 프로세스가 포트를 사용 중인 경우: 프로세스 정보를 확인하고 종료해도 안전한 경우에만 종료한다.
+
+```powershell
+Stop-Process -Id 12345
+```
+
+- Docker 컨테이너가 포트를 사용 중인 경우: 해당 컨테이너를 중지한다.
+
+```powershell
+docker stop my-web-container
+```
+
+컨테이너를 중지하면 해당 컨테이너가 사용하던 호스트 포트가 해제된다.
+
+**4. 다른 포트 사용**
+
+기존 포트를 해제할 수 없는 경우 호스트 포트를 변경하여 실행할 수 있다.
+
+```powershell
+docker run -d -p 8081:80 --name my-web-container my-web
+```
+
+이 경우 호스트의 8081번 포트가 컨테이너의 80번 포트로 연결되며, 브라우저에서 `http://localhost:8081`로 접속할 수 있다.
+
+포트 해제 후 다음 명령으로 사용 상태를 다시 확인할 수 있다.
+
+```powershell
+netstat -ano | findstr :8080
+```
+
+포트 충돌을 해결할 때는 먼저 사용 중인 프로세스를 식별하고, 해당 프로세스의 안전한 종료 또는 대체 포트 사용을 선택한다.
+
+
+
+**5. 포트 충돌 진단 실습 결과**
+
+Windows PowerShell에서 호스트의 8080번 포트를 확인하였다.
+
+```powershell
+netstat -ano | findstr LISTENING | findstr :8080
+```
+
+실행 결과가 출력되지 않아 로컬 8080번 포트에서 수신 대기 중인 프로세스가 없음을 확인하였다.
+
+다음 명령으로도 확인하였다.
+
+```powershell
+Get-NetTCPConnection -LocalPort 8080 -State Listen
+```
+
+일치하는 연결 객체가 없다는 결과를 확인하였다. 이는 해당 포트에서 수신 대기 중인 연결이 없다는 의미이며, 포트를 해제하기 위해 종료할 프로세스도 발견되지 않았음을 의미한다.
+
+Docker 컨테이너 상태도 확인하였다.
+
+```powershell
+docker ps
+docker ps -a
+```
+
+기존 `my-web-container`는 `Exited (255)` 상태였으며 실행 중인 컨테이너가 없었다.
+
+따라서 이번 진단 시점에는 호스트의 8080번 포트가 수신 대기 중이지 않았으며, 별도의 프로세스 종료 없이 포트 사용 충돌이 없는 상태임을 확인하였다.
+
+- 진단 로그: [port-diagnostic-operations.txt](./logs/port-diagnostic-operations.txt)
+
+**포트 해제 절차 요약**
+
+- 일반 프로세스: PID와 프로세스 이름을 확인한 후 안전한 경우 `Stop-Process -Id PID`로 종료한다.
+- Docker 컨테이너: `docker ps`로 실행 중인 컨테이너를 확인한 후 `docker stop 컨테이너명`으로 중지한다.
+- 해제 확인: `netstat -ano` 또는 `Get-NetTCPConnection`으로 해당 포트의 수신 대기 상태를 재확인한다.

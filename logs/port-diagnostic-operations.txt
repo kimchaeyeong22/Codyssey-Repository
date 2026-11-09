@@ -1,0 +1,52 @@
+﻿**********************
+Windows PowerShell 기록 시작
+시작 시간: 20261109144743
+사용자 이름: GNIA\florina162944
+RunAs 사용자: GNIA\florina162944
+구성 이름: 
+Machine: GNIA-C202-F02 (Microsoft Windows NT 10.0.26300.0)
+호스트 응용 프로그램: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -command try { . "c:\Program Files\Microsoft VS Code\2c33b50b16\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+프로세스 ID: 5852
+PSVersion: 5.1.26100.9711
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9711
+BuildVersion: 10.0.26100.9711
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+기록이 시작되었습니다. 출력 파일은 .\logs\port-diagnostic-operations.txt입니다.
+PS C:\Users\florina162944\dev-workstation-new> docker ps
+
+PS C:\Users\florina162944\dev-workstation-new> docker ps -a
+
+PS C:\Users\florina162944\dev-workstation-new> netstat -ano | findstr LISTENING | findstr :8080
+
+PS C:\Users\florina162944\dev-workstation-new> Get-NetTCPConnection -LocalPort 8080 -State Listen
+Get-NetTCPConnection : CIM 서버 에서 ROOT/StandardCimv2/MSFT_NetTCPConnection 클래스의 인스턴스에 대한 CIM 쿼리: SELECT * FROM MSFT_NetTC
+PConnection  WHERE ((LocalPort = 8080)) AND ((State = 2))에서 일치하는 MSFT_NetTCPConnection 개체를 찾지 못했습니다. 쿼리 매개 변수를 검증하고 다시 시
+도하십시오.
+위치 줄:1 문자:1
++ Get-NetTCPConnection -LocalPort 8080 -State Listen
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (MSFT_NetTCPConnection:String) [Get-NetTCPConnection], CimJobException
+    + FullyQualifiedErrorId : CmdletizationQuery_NotFound,Get-NetTCPConnection
+Get-NetTCPConnection : CIM 서버 에서 ROOT/StandardCimv2/MSFT_NetTCPCon
+nection 클래스의 인스턴스에 대한 CIM 쿼리: SELECT * FROM MSFT_NetTCPCo
+nnection  WHERE ((LocalPort = 8080)) AND ((State = 2))에서 일치하는 MS
+FT_NetTCPConnection 개체를 찾지 못했습니다. 쿼리 매개 변수를 검증하고
+다시 시도하십시오.
+위치 줄:1 문자:1
++ Get-NetTCPConnection -LocalPort 8080 -State Listen
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (MSFT_NetTCPConnection:
+   String) [Get-NetTCPConnection], CimJobException
+    + FullyQualifiedErrorId : CmdletizationQuery_NotFound,Get-NetTCPC
+   onnection
+
+PS C:\Users\florina162944\dev-workstation-new> Stop-Transcript
+**********************
+Windows PowerShell 기록 끝
+종료 시간: 20261109144848
+**********************
