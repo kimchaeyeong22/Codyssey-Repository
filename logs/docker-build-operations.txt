@@ -1,0 +1,120 @@
+﻿**********************
+Windows PowerShell 기록 시작
+시작 시간: 20261109131321
+사용자 이름: GNIA\florina162944
+RunAs 사용자: GNIA\florina162944
+구성 이름: 
+Machine: GNIA-C202-F02 (Microsoft Windows NT 10.0.26300.0)
+호스트 응용 프로그램: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -command try { . "c:\Program Files\Microsoft VS Code\2c33b50b16\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+프로세스 ID: 5852
+PSVersion: 5.1.26100.9711
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9711
+BuildVersion: 10.0.26100.9711
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+기록이 시작되었습니다. 출력 파일은 .\logs\docker-build-operations.txt입니다.
+PS C:\Users\florina162944\dev-workstation-new> docker build --progress=plain -t my-web . 2>&1 | Tee-Object -FilePath .\logs\docker-build-output.txt
+docker : #0 building with "desktop-linux" instance using docker driver
+위치 줄:1 문자:1
++ docker build --progress=plain -t my-web . 2>&1 | Tee-Object -FilePat
+h ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (#0 building wit...g dock
+   er driver:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 125B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/nginx:alpine
+#2 DONE 1.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 59B done
+#4 DONE 0.0s
+
+#5 [1/2] FROM docker.io/library/nginx:alpine@sha256:713fc2ebfd92e8217d
+b451477182ee91944b123d2b1ee9fd5a8c6e91ca6c3a11
+#5 resolve docker.io/library/nginx:alpine@sha256:713fc2ebfd92e8217db45
+1477182ee91944b123d2b1ee9fd5a8c6e91ca6c3a11 0.0s done
+#5 DONE 0.0s
+
+#6 [2/2] COPY app/index.html /usr/share/nginx/html/index.html
+#6 CACHED
+
+#7 exporting to image
+#7 exporting layers done
+#7 exporting manifest sha256:fcef98296001c8c2db98aea9d6536df545d0b96d2
+f3e197f445c27015ba58796 done
+#7 exporting config sha256:8dbcc8d2c7228becf87f4a1c6f47524bb53432e8848
+90c7e110711e917b94814 done
+#7 exporting attestation manifest sha256:ca2246dd62cf633e7a4043f6a2470
+c5bcf69896f813797ae3204e1912cefce58 0.0s done
+#7 exporting manifest list sha256:1a9ad3392f75f72fb3e36d5bc1671c66db65
+a10801c87432b7aa7ff064ee4ddb 0.0s done
+#7 naming to docker.io/library/my-web:latest done
+#7 unpacking to docker.io/library/my-web:latest done
+#7 DONE 0.1s
+PS C:\Users\florina162944\dev-workstation-new> Get-Content .\logs\docker-build-output.txt
+docker : #0 building with "desktop-linux" instance using docker driver
+위치 줄:1 문자:1
++ docker build --progress=plain -t my-web . 2>&1 | Tee-Object -FilePat
+h ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (#0 building wit...g dock
+   er driver:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 125B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/nginx:alpine
+#2 DONE 1.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 59B done
+#4 DONE 0.0s
+
+#5 [1/2] FROM docker.io/library/nginx:alpine@sha256:713fc2ebfd92e8217d
+b451477182ee91944b123d2b1ee9fd5a8c6e91ca6c3a11
+#5 resolve docker.io/library/nginx:alpine@sha256:713fc2ebfd92e8217db45
+1477182ee91944b123d2b1ee9fd5a8c6e91ca6c3a11 0.0s done
+#5 DONE 0.0s
+
+#6 [2/2] COPY app/index.html /usr/share/nginx/html/index.html
+#6 CACHED
+
+#7 exporting to image
+#7 exporting layers done
+#7 exporting manifest sha256:fcef98296001c8c2db98aea9d6536df545d0b96d2
+f3e197f445c27015ba58796 done
+#7 exporting config sha256:8dbcc8d2c7228becf87f4a1c6f47524bb53432e8848
+90c7e110711e917b94814 done
+#7 exporting attestation manifest sha256:ca2246dd62cf633e7a4043f6a2470
+c5bcf69896f813797ae3204e1912cefce58 0.0s done
+#7 exporting manifest list sha256:1a9ad3392f75f72fb3e36d5bc1671c66db65
+a10801c87432b7aa7ff064ee4ddb 0.0s done
+#7 naming to docker.io/library/my-web:latest done
+#7 unpacking to docker.io/library/my-web:latest done
+#7 DONE 0.1s
+PS C:\Users\florina162944\dev-workstation-new> Stop-Transcript
+**********************
+Windows PowerShell 기록 끝
+종료 시간: 20261109131355
+**********************

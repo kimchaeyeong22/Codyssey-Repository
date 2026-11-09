@@ -323,3 +323,13 @@ Docker의 기본 실행 테스트를 위해 `docker run hello-world` 명령어�
 ### 작업 로그
 [Docker Hello-world 실행 전체 로그](logs/docker-hello-world.txt)
 '@
+
+
+
+## Docker 이미지 빌드
+
+- Dockerfile 기반 이미지 빌드 실행
+- 실행 명령어: `docker build -t my-web .`
+- 빌드 결과: 성공
+- PowerShell 작업 기록: [docker-build-operations.txt](./logs/docker-build-operations.txt)
+- 실제 Docker 빌드 출력: [docker-build-output.txt](./logs/docker-build-output.txt)
