@@ -1,0 +1,44 @@
+URL: http://localhost:8080
+StatusCode: 200
+Headers:
+
+Key            Value                        
+---            -----                        
+Connection     keep-alive                   
+Accept-Ranges  bytes                        
+Content-Length 735                          
+Content-Type   text/html                    
+Date           Mon, 09 Nov 2026 04:34:19 GMT
+ETag           "6aeadcbc-2df"               
+Last-Modified  Wed, 04 Nov 2026 07:20:28 GMT
+Server         nginx/1.31.8                 
+
+
+
+HTML Body:
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e¡Æ?e¡Æ? i??i?¡þi?¢´i??i?¢¥i??</title>
+</head>
+<body>
+    <h1>Docker i?©ö i??e©÷? i?¢´i?? i?¡¾e©ø¥ì!</h1>
+    <p>e¡Æ?e¡Æ? i??i?¡þi?¢´i??i?¢¥i?? e¥ì¡þi¢Ò? i??e¢®?i??i?¢¬</p>
+    <p>HTML e¢¬¡Æe¡Æ? i?©ö i??e©÷?i??e??e?¢´.</p>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Bind Mount Test</title>
+</head>
+<body>
+    <h1>Bind Mount i??i?¢´i?¢¬ i?¡¾e©ø¥ì!</h1>
+    <p>i?¢¬i?¢´i?¢¬ i¡í¢¥i?¡§i?¡Æi??i?? HTML i??i?¨ùi?? i??i??i??i?¥ìe??e?¢´.</p>
+    <p>Docker i?¢¥e?¢¬i¡×€e¡Í¨ù e?¢´i?? e©ö?e??i??i¡×€ i??e©ø? e©ø€e©÷¨ö i?¡þi?¡©i?¢¥ e¡Æ?i??e??i??i?¥ìe??e?¢´.</p>
+</body>
+</html>
