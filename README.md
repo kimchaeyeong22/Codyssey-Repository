@@ -12,7 +12,7 @@ Docker를 이용하여 Nginx 웹 서버를 실행하고, 포트 매핑, Bind Mou
 | 항목 | 환경 |
 |---|---|
 | 운영체제 | Windows |
-| 터미널 | PowerShell |
+| 터미널 | PowerShell, Visual Studio COde |
 | 개발 도구 | Visual Studio Code |
 | 컨테이너 도구 | Docker Desktop |
 | Docker 실행 환경 | Linux / WSL2 |
@@ -86,13 +86,13 @@ EXPOSE 80
 
 ### 4-2. Docker 이미지 빌드
 
-```powershell
+```
 docker build -t my-web .
 ```
 
 ### 4-3. 컨테이너 실행 및 포트 매핑
 
-```powershell
+```
 docker run -d -p 8080:80 --name my-web-container my-web
 ```
 
@@ -106,7 +106,7 @@ docker run -d -p 8080:80 --name my-web-container my-web
 
 Bind Mount를 이용하여 로컬의 HTML 파일을 컨테이너 내부 웹 서버 디렉터리와 연결하였다.
 
-```powershell
+```
 docker run -d -p 8080:80 --name my-web-bind -v "${PWD}\app:/usr/share/nginx/html" nginx:alpine
 ```
 
@@ -127,25 +127,25 @@ docker run -d -p 8080:80 --name my-web-bind -v "${PWD}\app:/usr/share/nginx/html
 
 ### 6-1. Volume 생성
 
-```powershell
+```
 docker volume create web-data
 ```
 
 ### 6-2. 데이터 저장
 
-```powershell
+```
 docker run --name volume-test-1 -v web-data:/data alpine sh -c "echo 'Docker Volume persistence test' > /data/persistence.txt && cat /data/persistence.txt"
 ```
 
 ### 6-3. 기존 컨테이너 삭제
 
-```powershell
+```
 docker rm volume-test-1
 ```
 
-### 6-4. 새 컨테이너에서 데이터 확인
+### 6-4. 새 컨테이너에서 데이터 확인\
 
-```powershell
+```
 docker run --rm -v web-data:/data alpine cat /data/persistence.txt
 ```
 
@@ -173,9 +173,9 @@ Docker 명령어 및 실행 결과는 다음 파일에 기록하였다.
 
 **해결 방법**
 
-PowerShell에서 `Get-Item` 명령어로 파일 유형을 확인하고, 기존 디렉터리 이름을 변경한 후 올바른 Dockerfile을 생성하였다.
+VScode에서 `Get-Item` 명령어로 파일 유형을 확인하고, 기존 디렉터리 이름을 변경한 후 올바른 Dockerfile을 생성하였다.
 
-```powershell
+```
 Get-Item .\Dockerfile
 ```
 
@@ -191,7 +191,7 @@ Get-Item .\Dockerfile
 
 기존 컨테이너 목록을 확인하여 이름 중복 여부를 파악하고, 기존 컨테이너를 삭제하거나 다른 이름을 사용하도록 하였다.
 
-```powershell
+```
 docker ps -a
 ```
 
@@ -239,7 +239,7 @@ Docker 이미지 빌드 및 웹 서버 실행, 포트 매핑, Bind Mount를 통�
 
 ### 파일 시스템 관리 실습
 
-PowerShell을 사용하여 기본적인 파일 및 폴더 관리 작업을 수행하였다.
+VScode을 사용하여 기본적인 파일 및 폴더 관리 작업을 수행하였다.
 
 
 
@@ -261,14 +261,16 @@ PowerShell을 사용하여 기본적인 파일 및 폴더 관리 작업을 수�
 
 **실행 기록**
 
-실제 PowerShell 명령어와 실행 결과는 다음 로그 파일에 기록하였다.
+실제 VScode 명령어와 실행 결과는 다음 로그 파일에 기록하였다.
 
 - [파일 시스템 작업 로그](logs/filesystem-operations.txt)
 
 `Start-Transcript`와 `Stop-Transcript`를 사용하여 명령어 및 실행 결과를 기록하였다.
 ## 파일 시스템 관리 실습
+<img width="2773" height="1417" alt="스크린샷 2026-11-07 143226" src="https://github.com/user-attachments/assets/ffad6da8-7082-49d3-be24-6ecb1995b819" />
 
-PowerShell을 활용하여 파일 및 폴더의 생성, 조회, 이동, 삭제 작업을 수행하였다.
+
+VScode을 활용하여 파일 및 폴더의 생성, 조회, 이동, 삭제 작업을 수행하였다.
 
 ### 수행한 작업
 
@@ -285,7 +287,7 @@ PowerShell을 활용하여 파일 및 폴더의 생성, 조회, 이동, 삭제 �
 
 ### 실행 결과 및 증빙
 
-PowerShell의 `Start-Transcript` 기능을 사용하여 실제 명령어와 실행 결과를 로그 파일에 기록하였다.
+VScode의 `Start-Transcript` 기능을 사용하여 실제 명령어와 실행 결과를 로그 파일에 기록하였다.
 
 - [파일 시스템 작업 전체 로그](logs/filesystem-operations.txt)
 
@@ -301,7 +303,7 @@ Add-Content -Path .\README.md -Value @'
 <img width="1875" height="987" alt="스크린샷 2026-11-07 145257" src="https://github.com/user-attachments/assets/f923cb8b-c01b-40de-8381-83bc4dd02329" />
 
 
-Windows PowerShell에서 `icacls`, `Get-Acl`, `Set-Acl` 명령어를 사용하여 파일 접근 권한을 확인하고 변경하였다.
+VScode에서 `icacls`, `Get-Acl`, `Set-Acl` 명령어를 사용하여 파일 접근 권한을 확인하고 변경하였다.
 
 ### 주요 작업
 - `Get-Acl`: 파일의 기존 접근 권한 확인
@@ -364,7 +366,7 @@ Docker의 기본 실행 테스트를 위해 `docker run hello-world` 명령어�
 - Dockerfile 기반 이미지 빌드 실행
 - 실행 명령어: `docker build -t my-web .`
 - 빌드 결과: 성공
-- PowerShell 작업 기록: [docker-build-operations.txt](./logs/docker-build-operations.txt)
+- VScode 작업 기록: [docker-build-operations.txt](./logs/docker-build-operations.txt)
 - 실제 Docker 빌드 출력: [docker-build-output.txt](./logs/docker-build-output.txt)
 
 
@@ -388,7 +390,7 @@ Docker의 기본 실행 테스트를 위해 `docker run hello-world` 명령어�
 
 - `app/`: 웹 애플리케이션의 소스 코드를 보관한다. 실제 서비스에 사용되는 파일을 Docker 설정 및 문서와 분리하여 관리하기 위해 구성하였다.
 - `logs/`: 파일 시스템, 권한 관리, Git 및 Docker 명령어의 실행 기록과 결과를 보관한다. 실습 과정의 재현성과 검증 가능성을 확보하기 위해 구성하였다.
-- `screenshots/`: PowerShell 명령어 실행 화면과 웹 브라우저 접속 결과 등 시각적 증거를 보관한다. 텍스트 로그만으로 확인하기 어려운 작업 결과를 보완하기 위해 구성하였다.
+- `screenshots/`: VScode 명령어 실행 화면과 웹 브라우저 접속 결과 등 시각적 증거를 보관한다. 텍스트 로그만으로 확인하기 어려운 작업 결과를 보완하기 위해 구성하였다.
 
 ### 루트 디렉터리 파일의 역할
 
@@ -464,7 +466,7 @@ Docker Bind Mount에서 호스트 디렉터리를 지정할 때 절대경로와 
 - 자동화 스크립트나 배포 환경에서 경로를 명시적으로 관리할 때
 
 예시:
-```powershell
+```
 docker run -d -p 8080:80 --name my-web-absolute -v "C:\Users\사용자\dev-workstation-new\app:/usr/share/nginx/html" nginx:alpine
 ```
 
@@ -477,7 +479,7 @@ docker run -d -p 8080:80 --name my-web-absolute -v "C:\Users\사용자\dev-works
 - 프로젝트를 다른 컴퓨터로 옮겨도 폴더 구조가 동일하게 유지되는 경우
 
 예시:
-```powershell
+```
 docker run -d -p 8080:80 --name my-web-relative -v "${PWD}\app:/usr/share/nginx/html" nginx:alpine
 ```
 
@@ -537,7 +539,7 @@ Docker 컨테이너 실행 시 호스트 포트가 다른 프로세스에 의해
 
 **1. Docker 컨테이너의 포트 사용 상태 확인**
 
-```powershell
+``
 docker ps -a
 docker ps
 ```
@@ -547,7 +549,7 @@ docker ps
 
 **2. Windows 호스트의 포트 사용 프로세스 확인**
 
-```powershell
+```
 netstat -ano | findstr :8080
 ```
 
@@ -558,13 +560,13 @@ netstat -ano | findstr :8080
 
 PID를 확인한 후 프로세스 정보를 조회한다.
 
-```powershell
+```
 Get-Process -Id 12345
 ```
 
-또는 PowerShell의 다음 명령으로 포트 사용 정보를 확인할 수 있다.
+또는 VScode의 다음 명령으로 포트 사용 정보를 확인할 수 있다.
 
-```powershell
+```
 Get-NetTCPConnection -LocalPort 8080 -State Listen
 ```
 
@@ -572,13 +574,13 @@ Get-NetTCPConnection -LocalPort 8080 -State Listen
 
 - 일반 프로세스가 포트를 사용 중인 경우: 프로세스 정보를 확인하고 종료해도 안전한 경우에만 종료한다.
 
-```powershell
+```
 Stop-Process -Id 12345
 ```
 
 - Docker 컨테이너가 포트를 사용 중인 경우: 해당 컨테이너를 중지한다.
 
-```powershell
+```
 docker stop my-web-container
 ```
 
@@ -588,7 +590,7 @@ docker stop my-web-container
 
 기존 포트를 해제할 수 없는 경우 호스트 포트를 변경하여 실행할 수 있다.
 
-```powershell
+```
 docker run -d -p 8081:80 --name my-web-container my-web
 ```
 
@@ -596,7 +598,7 @@ docker run -d -p 8081:80 --name my-web-container my-web
 
 포트 해제 후 다음 명령으로 사용 상태를 다시 확인할 수 있다.
 
-```powershell
+```
 netstat -ano | findstr :8080
 ```
 
@@ -608,9 +610,9 @@ netstat -ano | findstr :8080
 
 
 
-Windows PowerShell에서 호스트의 8080번 포트를 확인하였다.
+VScode에서 호스트의 8080번 포트를 확인하였다.
 
-```powershell
+```
 netstat -ano | findstr LISTENING | findstr :8080
 ```
 
@@ -618,7 +620,7 @@ netstat -ano | findstr LISTENING | findstr :8080
 
 다음 명령으로도 확인하였다.
 
-```powershell
+```
 Get-NetTCPConnection -LocalPort 8080 -State Listen
 ```
 
@@ -626,7 +628,7 @@ Get-NetTCPConnection -LocalPort 8080 -State Listen
 
 Docker 컨테이너 상태도 확인하였다.
 
-```powershell
+```
 docker ps
 docker ps -a
 ```
