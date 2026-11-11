@@ -1,3 +1,4 @@
+<img width="854" height="454" alt="volume-after-delete" src="https://github.com/user-attachments/assets/ecb98d0f-0f81-43f8-abf1-e14ecdeb9f4a" />
 # 개발 워크스테이션 구축 및 Docker 실습
 
 ## 1. 프로젝트 소개
@@ -107,6 +108,12 @@ docker run -d -p 8080:80 --name my-web-bind -v "${PWD}\app:/usr/share/nginx/html
 로컬의 `app/index.html` 파일을 수정한 뒤 브라우저를 새로고침하여 변경 내용이 반영되는 것을 확인하였다.
 
 이를 통해 이미지를 다시 빌드하지 않고도 로컬 파일 변경 사항을 컨테이너에서 확인할 수 있음을 검증하였다.
+
+
+
+<img width="854" height="454" alt="volume-after-delete" src="https://github.com/user-attachments/assets/49e83e31-2443-4c14-b852-6230380a6915" />
+
+
 
 ## 6. Docker Volume 영속성 검증
 
