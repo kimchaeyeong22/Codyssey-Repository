@@ -50,6 +50,11 @@ OSType: linux
 
 Architecture: x86_64
 
+<img width="1807" height="1465" alt="스크린샷 2026-11-07 153058" src="https://github.com/user-attachments/assets/b663ca7e-6fd9-478c-acc4-07212ca8848d" />
+<img width="1675" height="1572" alt="스크린샷 2026-11-07 153119" src="https://github.com/user-attachments/assets/e0461475-8390-4c51-876f-82b1f60b2d42" />
+
+
+
 ## 3. 프로젝트 구조
 
 ```text
@@ -292,6 +297,9 @@ PowerShell의 `Start-Transcript` 기능을 사용하여 실제 명령어와 실�
 Add-Content -Path .\README.md -Value @'
 
 ## 파일 권한 관리 실습
+<img width="1806" height="1954" alt="스크린샷 2026-11-07 145716" src="https://github.com/user-attachments/assets/dd22770e-e5b7-4f22-8235-6962e9799988" />
+<img width="1875" height="987" alt="스크린샷 2026-11-07 145257" src="https://github.com/user-attachments/assets/f923cb8b-c01b-40de-8381-83bc4dd02329" />
+
 
 Windows PowerShell에서 `icacls`, `Get-Acl`, `Set-Acl` 명령어를 사용하여 파일 접근 권한을 확인하고 변경하였다.
 
@@ -321,6 +329,9 @@ Windows PowerShell에서 `icacls`, `Get-Acl`, `Set-Acl` 명령어를 사용하�
 Add-Content -Path .\README.md -Value @'
 
 ## Docker Hello-world 실행 실습
+
+<img width="1837" height="997" alt="스크린샷 2026-11-07 154546" src="https://github.com/user-attachments/assets/4f436aa0-92ba-4ec5-ac1e-a869a8d6f579" />
+
 
 Docker의 기본 실행 테스트를 위해 `docker run hello-world` 명령어를 실행하였다.
 
