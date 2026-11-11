@@ -465,6 +465,8 @@ docker run -d -p 8080:80 --name my-web-relative -v "${PWD}\app:/usr/share/nginx/
 
 ### rwx 권한 비트와 숫자 표기법
 
+
+
 Linux 및 Unix 계열 운영체제에서는 파일과 디렉터리의 접근 권한을 `rwx` 세 가지 비트로 표현한다.
 
 | 권한 | 의미 | 숫자값 |
@@ -503,6 +505,8 @@ Linux 및 Unix 계열 운영체제에서는 파일과 디렉터리의 접근 권
 
 
 ### 포트 충돌 진단 및 해제 방법
+
+<img width="1660" height="628" alt="스크린샷 2026-11-09 145122" src="https://github.com/user-attachments/assets/195c30a9-ea3e-407e-80ba-09f927e865c2" />
 
 Docker 컨테이너 실행 시 호스트 포트가 다른 프로세스에 의해 사용 중이면 포트 바인딩 오류가 발생할 수 있다. 이 경우 Docker 컨테이너와 호스트 PC의 포트 사용 상태를 각각 확인해야 한다.
 
@@ -577,6 +581,8 @@ netstat -ano | findstr :8080
 
 **5. 포트 충돌 진단 실습 결과**
 
+
+
 Windows PowerShell에서 호스트의 8080번 포트를 확인하였다.
 
 ```powershell
@@ -623,6 +629,9 @@ Windows 환경의 권한 관리와 별도로 Docker 기반 Linux 컨테이너에
 - 권한 확인: `ls -l sample.txt`
 - 권한 변경: `chmod 755 sample.txt`
 
+<img width="2788" height="1368" alt="스크린샷 2026-11-09 152236" src="https://github.com/user-attachments/assets/4891a494-3646-4578-aafa-7bb3b9208494" />
+
+
 **권한 변경 결과**
 
 | 구분 | 권한 문자열 | 숫자 권한 |
@@ -634,5 +643,8 @@ Windows 환경의 권한 관리와 별도로 Docker 기반 Linux 컨테이너에
 - 소유자: 읽기, 쓰기, 실행 (7)
 - 그룹: 읽기, 실행 (5)
 - 기타 사용자: 읽기, 실행 (5)
+
+<img width="2785" height="1795" alt="스크린샷 2026-11-09 153332" src="https://github.com/user-attachments/assets/ae524365-4b72-4ea2-bc1c-863753977da5" />
+
 
 **실습 로그:** [linux-permission-operations.txt](./logs/linux-permission-operations.txt)
