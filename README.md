@@ -339,6 +339,11 @@ Docker의 기본 실행 테스트를 위해 `docker run hello-world` 명령어�
 
 ## Docker 이미지 빌드
 
+<img width="1645" height="187" alt="스크린샷 2026-11-09 133206" src="https://github.com/user-attachments/assets/e9b14ba4-03a2-4a2c-8db2-ec800810a840" />
+
+<img width="2377" height="1105" alt="스크린샷 2026-11-09 133920" src="https://github.com/user-attachments/assets/30b09337-4bc3-42ed-84e2-59361a0b3a81" />
+
+
 - Dockerfile 기반 이미지 빌드 실행
 - 실행 명령어: `docker build -t my-web .`
 - 빌드 결과: 성공
@@ -348,6 +353,9 @@ Docker의 기본 실행 테스트를 위해 `docker run hello-world` 명령어�
 
 
 ## Git 사용자 정보 설정
+
+<img width="988" height="675" alt="스크린샷 2026-11-09 141315" src="https://github.com/user-attachments/assets/401250af-4182-4c2c-a066-f8bc47e0fdde" />
+
 
 - 사용자 이름 설정: `git config --local user.name`
 - 이메일 설정: `git config --local user.email`
