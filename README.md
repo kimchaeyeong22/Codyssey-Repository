@@ -339,6 +339,12 @@ Docker의 기본 실행 테스트를 위해 `docker run hello-world` 명령어�
 
 ## Docker 이미지 빌드
 
+<img width="1308" height="1020" alt="스크린샷 2026-11-09 131518" src="https://github.com/user-attachments/assets/c8c079ae-344d-44c4-bf29-67af473b69d8" />
+<img width="497" height="407" alt="스크린샷 2026-11-09 132018" src="https://github.com/user-attachments/assets/cff3beff-7e5b-4c19-9443-b4e4444944dd" />
+<img width="466" height="496" alt="스크린샷 2026-11-09 132127" src="https://github.com/user-attachments/assets/10e7f632-d75b-485e-ad92-9258cf065dfb" />
+
+
+
 <img width="1645" height="187" alt="스크린샷 2026-11-09 133206" src="https://github.com/user-attachments/assets/e9b14ba4-03a2-4a2c-8db2-ec800810a840" />
 
 <img width="2377" height="1105" alt="스크린샷 2026-11-09 133920" src="https://github.com/user-attachments/assets/30b09337-4bc3-42ed-84e2-59361a0b3a81" />
