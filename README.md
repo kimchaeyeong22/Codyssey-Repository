@@ -159,9 +159,48 @@ Docker Volume persistence test
 
 ## 7. Docker 운영 로그
 
-Docker 명령어 및 실행 결과는 다음 파일에 기록하였다.
+Docker 명령어 및 실행 결과를 다음과 같이 기록하였다.
 
-- [Docker 운영 로그](logs/docker-operations.txt)
+```
+**********************
+Windows PowerShell 기록 시작
+시작 시간: 20261104160834
+사용자 이름: GNIA\--------
+RunAs 사용자: GNIA\--------
+구성 이름: 
+Machine: GNIA-C202-C01 (Microsoft Windows NT 10.0.26300.0)
+호스트 응용 프로그램: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -command try { . "c:\Program Files\Microsoft VS Code\2c33b50b16\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+프로세스 ID: 21912
+PSVersion: 5.1.26100.9711
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9711
+BuildVersion: 10.0.26100.9711
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+기록이 시작되었습니다. 출력 파일은 .\logs\docker-operations.txt입니다.
+PS C:\Users\--------\dev-workstation-new> docker --version
+
+PS C:\Users\--------\dev-workstation-new> git --version
+
+PS C:\Users\--------\dev-workstation-new> docker info
+
+PS C:\Users\--------\dev-workstation-new> docker images
+
+PS C:\Users\--------\dev-workstation-new> docker ps -a
+
+PS C:\Users\--------\dev-workstation-new> docker logs my-web-container
+
+PS C:\Users\--------\dev-workstation-new> docker stats --no-stream my-web-container
+
+PS C:\Users\--------\dev-workstation-new> Stop-Transcript
+**********************
+Windows PowerShell 기록 끝
+종료 시간: 20261104160910
+**********************
+```
 
 ## 8. 트러블슈팅
 
@@ -261,9 +300,115 @@ VScode을 사용하여 기본적인 파일 및 폴더 관리 작업을 수행하
 
 **실행 기록**
 
-실제 VScode 명령어와 실행 결과는 다음 로그 파일에 기록하였다.
+실제 VScode 명령어와 실행 결과는 다음과 같다
+
+
+```
+﻿**********************
+Windows PowerShell 기록 시작
+시작 시간: 20261107140128
+사용자 이름: GNIA\--------
+RunAs 사용자: GNIA\--------
+구성 이름: 
+Machine: GNIA-C202-C04 (Microsoft Windows NT 10.0.26300.0)
+호스트 응용 프로그램: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -command try { . "c:\Program Files\Microsoft VS Code\261c84cb1e\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+프로세스 ID: 2416
+PSVersion: 5.1.26100.9711
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9711
+BuildVersion: 10.0.26100.9711
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+기록이 시작되었습니다. 출력 파일은 .\logs\filesystem-operations.txt입니다.
+PS C:\Users\--------\dev-workstation-new> New-Item -ItemType Directory -Path .\filesystem-test
+
+
+    디렉터리: C:\Users\--------\dev-workstation-new
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2026-11-07   오후 2:02                filesystem-test
+
+
+PS C:\Users\--------\dev-workstation-new> New-Item -ItemType File -Path .\filesystem-test\test.txt
+
+
+    디렉터리: C:\Users\--------\dev-workstation-new\filesystem-t
+    est
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----      2026-11-07   오후 2:02              0 test.txt
+
+
+PS C:\Users\--------\dev-workstation-new> Get-ChildItem .\filesystem-test
+
+
+    디렉터리: C:\Users\--------\dev-workstation-new\filesystem-t
+    est
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----      2026-11-07   오후 2:02              0 test.txt
+
 
 - [파일 시스템 작업 로그](logs/filesystem-operations.txt)
+
+PS C:\Users\--------\dev-workstation-new> New-Item -ItemType Directory -Path .\filesystem-test\backup
+
+
+    디렉터리: C:\Users\--------\dev-workstation-new\filesystem-t
+    est
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2026-11-07   오후 2:06                backup
+
+
+PS C:\Users\--------\dev-workstation-new> Move-Item -Path .\filesystem-test\test.txt -Destination .\filesystem-test\backup\
+PS C:\Users\--------\dev-workstation-new> Get-ChildItem .\filesystem-test\backup
+
+
+    디렉터리: C:\Users\--------\dev-workstation-new\filesystem-t
+    est\backup
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----      2026-11-07   오후 2:03             38 test.txt
+
+
+PS C:\Users\--------\dev-workstation-new> Remove-Item .\filesystem-test\backup\test.txt
+PS C:\Users\--------\dev-workstation-new> Test-Path .\filesystem-test\backup\test.txt
+False
+PS C:\Users\--------\dev-workstation-new> Get-ChildItem .\filesystem-test -Recurse
+
+
+    디렉터리: C:\Users\--------\dev-workstation-new\filesystem-t
+    est
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2026-11-07   오후 2:09                backup
+
+
+PS C:\Users\--------\dev-workstation-new> Remove-Item .\filesystem-test -Recurse -Force
+PS C:\Users\--------\dev-workstation-new> Test-Path .\filesystem-test
+False
+PS C:\Users\--------\station-new> Stop-Transcript
+**********************
+Windows PowerShell 기록 끝
+종료 시간: 20261107141110
+**********************
+```
 
 `Start-Transcript`와 `Stop-Transcript`를 사용하여 명령어 및 실행 결과를 기록하였다.
 ## 파일 시스템 관리 실습
@@ -319,8 +464,38 @@ VScode에서 `icacls`, `Get-Acl`, `Set-Acl` 명령어를 사용하여 파일 접
 - 최종 권한 확인 성공
 
 ### 작업 로그
-[파일 권한 작업 전체 로그](logs/permission-operations.txt)
-'@
+
+```
+﻿**********************
+Windows PowerShell 기록 시작
+시작 시간: 20261107145148
+사용자 이름: GNIA\-------
+RunAs 사용자: GNIA\-------
+구성 이름: 
+Machine: GNIA-C202-C04 (Microsoft Windows NT 10.0.26300.0)
+호스트 응용 프로그램: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -command try { . "c:\Program Files\Microsoft VS Code\261c84cb1e\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+프로세스 ID: 2416
+PSVersion: 5.1.26100.9711
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9711
+BuildVersion: 10.0.26100.9711
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+기록이 시작되었습니다. 출력 파일은 .\logs\permission-operations.txt입니다.
+
+Path   : Microsoft.PowerShell.Core\FileSystem::C:\Users\florina162944\dev-workstation-new\permission-test\sample.txt
+Owner  : GNIA\-------
+Group  : GNIA\-------
+Access : NT AUTHORITY\SYSTEM Allow  FullControl
+         BUILTIN\Administrators Allow  FullControl
+         GNIA\florina162944 Allow  FullControl
+Audit  :
+Sddl   : (생략)
+```
+
 
 
 
